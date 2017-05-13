@@ -1,0 +1,33 @@
+// Find the number of matching patterns in a string
+#include <iostream>
+#include <string.h>
+#include <string>
+    
+    int matchPattern(char* s, char* sub){
+        int count = 0;
+        int flag = 1;
+        int len  = strlen(s);
+        int sublen = strlen(sub);
+        
+        for(int i = 0; i < len; ++i){
+            if(s[i] == sub[0]){
+                
+                int k = i;
+                for(int j = 0; s[k] != '\0' && j < sublen; ++j,++k){
+                    if(s[k] != sub[j]) flag = 0;
+                }
+                
+                if(flag) count++;
+            }
+        }
+        
+        return count;
+    }
+    
+    
+    int main()  
+    {
+        std::string sentence("this is a code");
+        std::string substring("is");
+        std::cout<<matchPattern(strdup(sentence.c_str()),strdup(substring.c_str()));
+    }

@@ -1,0 +1,40 @@
+// Find the date from the given number of days and year
+#include <iostream>
+#include <string>
+    
+    void setMonths(int* m, int year){
+        m[0] = 31;
+        if(year/4 == 0) m[1] = 29;
+        else m[1] = 28;
+        m[2] = 31;
+        m[3] = 30;
+        m[4] = 31;
+        m[5] = 30;
+        m[6] = 31;
+        m[7] = 31;
+        m[8] = 30;
+        m[9] = 31;
+        m[10] = 30;
+        m[11] = 31;
+    }
+    
+    void printDate(int days, int year){
+        int m[12];
+        setMonths(m, year);
+        int temp = days;
+        
+        for(int i = 0; i < 12; ++i){
+            if(temp < m[i]){
+                std::cout<<temp<<" - "<<i+1<<" - "<<year;
+                return;
+            }
+            else {
+                temp -= m[i];   
+            }
+        }
+    }
+    
+    int main()
+    {
+          printDate(54,2017);
+    }

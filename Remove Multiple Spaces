@@ -1,0 +1,22 @@
+// Remove multiple spaces from an input via stdin
+#include <iostream>
+#include <string>
+
+    int main()
+    {
+        std::string input, result;
+        getline(std::cin,input);
+        
+        size_t len = input.length(); 
+        for(size_t i = 0; i < len; ++i){
+            if(input[i] != ' '){
+                result+= input[i];
+                if((i+1) < len && input[i+1] == ' '){
+                    result += " ";
+                }
+            }
+        }
+        
+        std::cout<<result;
+            
+    }
